@@ -1,0 +1,197 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ITMT PROF WEB SITE</title>
+  <meta name="description" content="Landing page for ITMT PROF resources: Linux, Docker, Ansible, and Réseaux." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1:#0a0f1f;
+      --bg-2:#0e1730;
+      --accent:#4fd1ff;
+      --accent-2:#7c4dff;
+      --text:#e8eefc;
+      --muted:#a9b3c7;
+      --btn-bg:#162244;
+      --btn-bg-hover:#1c2c59;
+      --ring:#4fd1ff55;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+      color:var(--text);
+      min-height:100svh;
+      display:grid;
+      place-items:center;
+      position:relative;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, #1b2a5f55, transparent 60%),
+        radial-gradient(900px 500px at 10% 110%, #0a6b8e55, transparent 60%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+      overflow:hidden;
+      isolation:isolate;
+    }
+    body::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(transparent 97%, #ffffff10 97% 100%),
+        linear-gradient(90deg, transparent 97%, #ffffff10 97% 100%);
+      background-size: 30px 30px;
+      opacity:.25;
+      pointer-events:none;
+      z-index:-1;
+    }
+    .lines{
+      position:absolute; inset:0;
+      background:
+        repeating-linear-gradient( 110deg, transparent 0 20px, #6ee7ff06 20px 21px),
+        repeating-linear-gradient( -110deg, transparent 0 24px, #7c4dff06 24px 25px);
+      filter: blur(0.5px);
+      animation: drift 22s linear infinite;
+      opacity:.5;
+      z-index:-1;
+    }
+    @keyframes drift{
+      from{transform:translateY(0)}
+      to{transform:translateY(-40px)}
+    }
+    .wrap{
+      width:min(920px, 92vw);
+      padding: clamp(20px, 4vw, 48px);
+      border-radius:24px;
+      background: linear-gradient(180deg, #0b1538aa, #0c1233aa);
+      backdrop-filter: blur(8px);
+      box-shadow:
+        0 20px 40px #00000066,
+        0 0 0 1px #ffffff10;
+    }
+    header{
+      text-align:center;
+      margin-bottom: clamp(20px, 3vw, 32px);
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 5vw, 44px);
+      line-height:1.1;
+      font-weight:800;
+      letter-spacing:.5px;
+      text-shadow: 0 6px 24px #0007;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size: clamp(14px, 2vw, 16px);
+    }
+    .actions{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: clamp(12px, 2vw, 18px);
+      margin-top: clamp(18px, 3vw, 28px);
+    }
+    .btn{
+      display:flex; align-items:center; justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      color:var(--text);
+      background:var(--btn-bg);
+      border:1px solid #ffffff14;
+      border-radius:16px;
+      padding: clamp(14px, 2.8vw, 18px) clamp(14px, 3vw, 22px);
+      font-weight:600;
+      font-size: clamp(14px, 2vw, 16px);
+      transition: transform .12s ease, background .2s ease, box-shadow .2s ease;
+      box-shadow: 0 6px 18px #00000055, 0 0 0 0px var(--ring);
+      position:relative;
+      overflow:hidden;
+    }
+    .btn:hover, .btn:focus-visible{
+      background:var(--btn-bg-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px #00000066, 0 0 0 6px var(--ring);
+      outline:none;
+    }
+    .btn svg{width:18px; height:18px; opacity:.9}
+    footer{
+      margin-top: clamp(22px, 3vw, 32px);
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+    /* Logo styles */
+    .logo {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .logo img {
+      max-width: 40%;
+      height: auto;
+      filter: drop-shadow(0 4px 12px #0007);
+    }
+    @media (max-width: 720px){
+      .actions{ grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .lines{ animation: none; }
+      .btn{ transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="lines" aria-hidden="true"></div>
+  <main class="wrap" role="main">
+    <header>
+      <h1>TOHME WEB SITE</h1>
+      <p class="subtitle">Sélectionnez une section à explorer: Linux, Docker, Ansible ou Réseaux.</p>
+    </header>
+
+    <section class="actions" aria-label="Primary navigation">
+      <a class="btn" href="https://itmt-prof.com/linux/" target="_blank" rel="noopener" aria-label="Open the Linux section (opens in a new tab)">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 7l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14 17h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        Linux
+      </a>
+
+      <a class="btn" href="https://lemon-island-087b60410.7.azurestaticapps.net/" target="_blank" rel="noopener" aria-label="Open the Docker section (opens in a new tab)">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="10" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/>
+          <rect x="9" y="10" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/>
+          <rect x="15" y="10" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/>
+          <rect x="7" y="6" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        Docker
+      </a>
+
+      <a class="btn" href="https://itmt-prof.com/ansible/" target="_blank" rel="noopener" aria-label="Open the Ansible section (opens in a new tab)">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M9 16l3.2-7 2.8 7m-1.2-3h-3.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Ansible
+      </a>
+
+      <a class="btn" href="https://itmt-prof.com/reseaux/" target="_blank" rel="noopener" aria-label="Open the Réseaux section (opens in a new tab)">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        Réseaux
+      </a>
+    </section>
+
+    <footer>
+      © <span id="year"></span> ANTOINE TOHME — Tous droits réservés
+    </footer>
+  </main>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
